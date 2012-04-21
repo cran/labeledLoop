@@ -1,0 +1,246 @@
+l
+load_all(".")
+a <- c()#
+hoge %._.% for(i in 1:3) {  #
+     "boke" %._.% for (j in 1:3) {#
+       if (i == 2 && j == 2) ._.(boke) # .V. が脱出マクロ。i=j=2の時に脱出。#
+             if (i == 3 && j == 2) ._.(hoge)#
+       a <- c(a, paste(i, j)) # グローバル変数に代入#
+       print(c(i, j)) # 途中までは実行される#
+     }#
+   }
+a <- c()#
+%._.% for(i in 1:3) {  #
+     "boke" %._.% for (j in 1:3) {#
+       if (i == 2 && j == 2) ._.(boke) # .V. が脱出マクロ。i=j=2の時に脱出。#
+             if (i == 3 && j == 2) ._.(hoge)#
+       a <- c(a, paste(i, j)) # グローバル変数に代入#
+       print(c(i, j)) # 途中までは実行される#
+     }#
+   }
+a <- c()#
+. %._.% for(i in 1:3) {  #
+     "boke" %._.% for (j in 1:3) {#
+       if (i == 2 && j == 2) ._.(boke) # .V. が脱出マクロ。i=j=2の時に脱出。#
+             if (i == 3 && j == 2) ._.(hoge)#
+       a <- c(a, paste(i, j)) # グローバル変数に代入#
+       print(c(i, j)) # 途中までは実行される#
+     }#
+   }
+load_all(".")
+a <- c()#
+. %._.% for(i in 1:3) {  #
+     "boke" %._.% for (j in 1:3) {#
+       if (i == 2 && j == 2) ._.(boke) # .V. が脱出マクロ。i=j=2の時に脱出。#
+             if (i == 3 && j == 2) ._.(hoge)#
+       a <- c(a, paste(i, j)) # グローバル変数に代入#
+       print(c(i, j)) # 途中までは実行される#
+     }#
+   }
+. %._.% for(i in 1:3) {  #
+  foo %._.% for (j in 1:3) {#
+    orz %._.% for (k in 1:3) {#
+      print(c(i, j, k))#
+      # escape from outmost loop#
+      if (i == 3 && j == 3 && k == 2) ._.()#
+#
+      # escape from innermost loop#
+      if (i == 2 && j == 2) ._.(orz)#
+#
+      # escape from `foo`#
+      if (i == 1 && j == 1 && k == 2) ._.(foo)#
+  }#
+}
+}
+. %._.% for(i in 1:3) {  #
+  foo %._.% for (j in 1:3) {#
+    orz %._.% for (k in 1:3) {#
+      print(c(i, j, k))#
+      # escape from outmost loop#
+      if (i == 3 && j == 3 && k == 2) ._.()#
+#
+      # escape from innermost loop#
+      if (i == 2 && j == 2) ._.(orz)#
+#
+      # escape from `foo`#
+      if (i == 1 && j == 1 && k == 2) ._.(foo)#
+    }#
+  }#
+}
+l(".")
+load_all(".")
+. %._.% for(i in 1:3) {  #
+  foo %._.% for (j in 1:3) {#
+    orz %._.% for (k in 1:3) {#
+      print(c(i, j, k))#
+      # escape from outmost loop#
+      if (i == 3 && j == 3 && k == 2) ._.()#
+#
+      # escape from innermost loop#
+      if (i == 2 && j == 2) ._.(orz)#
+#
+      # escape from `foo`#
+      if (i == 1 && j == 1 && k == 2) ._.(foo)#
+    }#
+  }#
+}
+. %._.% for(i in 1:3) {  #
+  foo %._.% for (j in 1:3) {#
+    orz %._.% for (k in 1:3) {#
+      print(c(i, j, k))#
+      if (i == 3 && j == 3 && k == 2) {#
+        cat("escape from outmost loop\n")#
+        ._.()#
+      }#
+#
+      if (i == 2 && j == 2) {#
+        cat("escape from innermost loop (orz)\n")#
+        ._.(orz)#
+#
+      if (i == 1 && j == 1 && k == 2) {#
+        cat("escape from foo\n")#
+        ._.(foo)#
+      }#
+    }#
+  }#
+}
+}
+. %._.% for(i in 1:3) {  #
+  foo %._.% for (j in 1:3) {#
+    orz %._.% for (k in 1:3) {#
+      print(c(i, j, k))#
+      if (i == 3 && j == 3 && k == 2) {#
+        cat("escape from outmost loop\n")#
+        ._.()#
+      }#
+#
+      if (i == 2 && j == 2) {#
+        cat("escape from innermost loop (orz)\n")#
+        ._.(orz)#
+      }#
+#
+      if (i == 1 && j == 1 && k == 2) {#
+        cat("escape from foo\n")#
+        ._.(foo)#
+      }#
+    }#
+  }#
+}
+document(.)
+document("labeledLoop")
+document("../labeledLoop")
+show_rd(".")
+show_rd(".", "labeledLoop")
+document("../labeledLoop")
+show_rd(".", "labeledLoop")
+document("../labeledLoop")
+dev_mode()
+install(".")
+document("../labeledLoop")
+install(".")
+help(p="labeledLoop")
+install.packages(".")
+install.packages("../labeledLoop")
+install.packages("../labeledLoop", type = "source")
+document("../labeledLoop")
+install.packages("../labeledLoop", type = "source")
+?install.packages
+setwd('..')
+install.packages("labeledLoop", type = "source")
+help(p="labeledLoop")
+document("../labeledLoop")
+setwd('labeledLoop/')
+check(".")
+install(".")
+library(labeledLoop)
+. %._.% for(i in 1:3) {#
+  foo %._.% for (j in 1:3) {#
+    orz %._.% for (k in 1:3) {#
+      print(c(i, j, k))#
+#
+      if (i == 3 && j == 3 && k == 2) {#
+        cat("escape from outmost loop\n")#
+        ._.()#
+      }#
+#
+      if (i == 2 && j == 2) {#
+        cat("escape from innermost loop (orz)\n")#
+        ._.(orz)#
+      }#
+#
+      if (i == 1 && j == 1 && k == 2) {#
+        cat("escape from foo\n")#
+        ._.(foo)#
+      }#
+    }#
+  }#
+}
+f <- function(){#
+a <- c()#
+#
+. %._.% for(i in 1:3) {#
+  foo %._.% for (j in 1:3) {#
+    orz %._.% for (k in 1:3) {#
+      print(c(i, j, k))#
+#
+      if (i == 3 && j == 3 && k == 2) {#
+        cat("escape from outmost loop\n")#
+        ._.()#
+      }#
+#
+      if (i == 2 && j == 2) {#
+        cat("escape from innermost loop (orz)\n")#
+        ._.(orz)#
+      }#
+#
+      if (i == 1 && j == 1 && k == 2) {#
+        cat("escape from foo\n")#
+        ._.(foo)#
+      }#
+      a <- c(a, paste(i, j, k))#
+    }#
+  }#
+}#
+#
+a#
+}
+f()
+a
+?release
+check(".")
+release(".")
+release(".")
+f <- function(){#
+a <- c()#
+#
+. %._.% for(i in 1:3) {#
+  foo %._.% for (j in 1:3) {#
+    orz %._.% for (k in 1:3) {#
+      print(c(i, j, k))#
+#
+      if (i == 3 && j == 3 && k == 2) {#
+        cat("escape from outmost loop\n")#
+        ._.()#
+      }#
+#
+      if (i == 2 && j == 2) {#
+        cat("escape from innermost loop (orz)\n")#
+        ._.(orz)#
+      }#
+#
+      if (i == 1 && j == 1 && k == 2) {#
+        cat("escape from foo\n")#
+        ._.(foo)#
+      }#
+      a <- c(a, paste(i, j, k))#
+    }#
+  }#
+}#
+#
+a#
+}
+f()
+x="abc(def"
+x
+sub("\(", "@", x)
+sub("\\(", "@", x)
